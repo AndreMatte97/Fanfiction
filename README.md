@@ -23,7 +23,7 @@ Please remember that the distribution of the material found on that website is p
   * If you wish to give a different name to the .json file containing the output, you also need to open 'spider2.py' in a text editor, search for the line `with open('.\PadriHPv2.json') as f:` and change the name of the file there too. The reason for this will become apparent in the next point.
 3. After waiting patiently for the first spider to finish crawling, you can run the second spider. This one will look in the data collected by the first one, collect the URLs of every single first chapter and use them to retrieve all the subsequent chapters of those stories. This time you can name the output file however you want, so for example: `scrapy crawl spider2 -O FigliHP.json`. Keep in mind, on average each story has 3.6 chapters, so this spider will take nearly 3 times longer to run!
 
-## But... What did these Spiders get me?
+## What did these spiders get me?
 Each entry in the json files corresponds to a chapter of a story, and contains the following information:
 * ID: the number with which the website univocally identifies that particular chapter.
 * ID_Rif: the ID for the first chapter of a particular story. You can use it to group together the chapters belonging to the same story.
