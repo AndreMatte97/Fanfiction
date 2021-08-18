@@ -1,5 +1,5 @@
 # Fanfiction
-Web Crawlers for [EFPFanfic](https://efpfanfic.net/), a website containing user-generated fanfictions and original stories written in Italian. A corpus made up of fanfictions extracted from this portal has been analyzed in the Computational Linguistics study presented in [Mattei, Brunato, Dell'Orletta (2021)](http://ceur-ws.org/Vol-2769/paper_52.pdf).
+Web Crawlers for [EFPFanfic](https://efpfanfic.net/), a website containing user-generated fanfictions and original stories written in Italian. A corpus made up of fanfictions inspired by the popular fantasy saga 'Harry Potter' extracted from this portal has been analyzed in the Computational Linguistics study presented in [Mattei, Brunato, Dell'Orletta (2021)](http://ceur-ws.org/Vol-2769/paper_52.pdf).
 
 Please remember that the distribution of the material found on that website is prohibited without the author's consent, except for short quotes. This is why we deemed appropriate to only share the spiders employed to extract this data, instead of the whole corpus.
 
@@ -24,5 +24,17 @@ Please remember that the distribution of the material found on that website is p
 3. After waiting patiently for the first spider to finish crawling, you can run the second spider. This one will look in the data collected by the first one, collect the URLs of every single first chapter and use them to retrieve all the subsequent chapters of those stories. This time you can name the output file however you want, so for example: `scrapy crawl spider2 -O FigliHP.json`. Keep in mind, on average each story has 3.6 chapters, so this spider will take nearly 3 times longer to run!
 
 ## But... What did these Spiders get me?
+Each entry in the json files corresponds to a chapter of a story, and contains the following information:
+* ID: the number with which the website univocally identifies that particular chapter.
+* ID_Rif: the ID for the first chapter of a particular story. You can use it to group together the chapters belonging to the same story.
+* Titolo_Rif: the title for the first chapter of a story.
+* Rating: an estimate given by the author about the crudeness and maturity of the described scenes and the dealt with themes.
+* Nome_Autore: the author's nickname.
+* Data: Date in which the chapter has been posted.
+* **Racconto_Text_Only**: The actual text of the chapter. Due to the heavy customization on the page appearance done by most authors through HTML markup, the spiders clean the data beforehand and output a 'Text-Only version. 
 
+* Elenco_Capitoli: a list of the IDs of all chapters beloning to that story.
+* Numero_Capitoli: how many chapters does this story have.
+* Next_ID_List: the ID of the next chapter in the story.
+* Position: where this chapter is situated in its story.
 
