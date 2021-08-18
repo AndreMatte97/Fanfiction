@@ -19,7 +19,7 @@ Please remember that the distribution of the material found on that website is p
 ## Running the spiders
 1. Navigate to the 'spiders' directory in your Scrapy project folder.
 2. Start by running spider1, using the command `scrapy crawl spider1 -O PadriHPv2.json`. This runs spider1.py, which collects the first chapter of each story and saves their text and some metadata about them in a .json file called 'PadriHPv2', automatically created in the same folder of the spiders. Some things to note: 
-* If for whatever reason you wish to rename the .py files containing the spider, remember that you'll still need to call them 'spider1' and 'spider2' when running them using `scrapy crawl`. This is because the command actually checks for the variable 'name' declared inside the Python script, and not for the filename. 
-* If you wish to give a different name to the .json file containing the output, you also need to open 'spider2.py' in a text editor, search for the line `with open('.\PadriHPv2.json') as f:` and change the name of the file there too. The reason for this will become apparent in the next point.
+  * If for whatever reason you wish to rename the .py files containing the spider, remember that you'll still need to call them 'spider1' and 'spider2' when running them using `scrapy crawl`. This is because the command actually checks for the variable 'name' declared inside the Python script, and not for the filename. 
+  * If you wish to give a different name to the .json file containing the output, you also need to open 'spider2.py' in a text editor, search for the line `with open('.\PadriHPv2.json') as f:` and change the name of the file there too. The reason for this will become apparent in the next point.
 3. Ciao
 
