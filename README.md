@@ -23,7 +23,7 @@ Please remember that the distribution of the material found on that website is p
   * If you wish to give a different name to the .json file containing the output, you also need to open 'spider2.py' in a text editor, search for the line `with open('.\PadriHPv2.json') as f:` and change the name of the file there too. The reason for this will become apparent in the next point.
 3. After waiting patiently for the first spider to finish crawling, you can run the second spider. This one will look in the data collected by the first one, collect the URLs of every single first chapter and use them to retrieve all the subsequent chapters of those stories. This time you can name the output file however you want, so for example: `scrapy crawl spider2 -O FigliHP.json`. Keep in mind, on average each story has 3.6 chapters, so this spider will take nearly 3 times longer to run!
 
-## What did these spiders get me?
+## What info are these spiders getting?
 Each entry in the json files corresponds to a chapter of a story, and contains the following information:
 * ID: the number with which the website univocally identifies that particular chapter.
 * ID_Rif: the ID for the first chapter of a particular story. You can use it to group together the chapters belonging to the same story.
@@ -31,8 +31,13 @@ Each entry in the json files corresponds to a chapter of a story, and contains t
 * Rating: an estimate given by the author about the crudeness and maturity of the described scenes and the dealt with themes.
 * Nome_Autore: the author's nickname.
 * Data: Date in which the chapter has been posted.
-* **Racconto_Text_Only**: The actual text of the chapter. Due to the heavy customization on the page appearance done by most authors through HTML markup, the spiders clean the data beforehand and output a 'Text-Only version. 
-
+* **Racconto_Text_Only**: The actual text of the chapter. Due to the heavy customization on the page appearance done by most authors through HTML markup, the spiders clean the data beforehand and output a text-only version. 
+* N_Tot_Rec: The number of reviews received in total by the story this chapter belongs to.
+* N_Tot_Rec_Pos: The number of positive reviews received in total.
+* N_Tot_Rec_Neg: The number of neutral and negative reviews in total.
+* This_Rec: Number of reviews received by this particular chapter.
+For each review it is also possible to collect its text, as well as other information such as the reviewer's nickname. Since this study ended up not focusing on analyzing reviews, this feature has been removed early in the process of writing the presented crawlers: if you are interested in it feel free to write me an e-mail. 
+Lastly, in the .json files there are also some more fields containing information pertaining the structure of the stories: 
 * Elenco_Capitoli: a list of the IDs of all chapters beloning to that story.
 * Numero_Capitoli: how many chapters does this story have.
 * Next_ID_List: the ID of the next chapter in the story.
