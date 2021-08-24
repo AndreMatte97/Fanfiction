@@ -4,7 +4,7 @@ Web Crawlers for [EFPFanfic](https://efpfanfic.net/), a website containing user-
 Please remember that the distribution of the material found on that website is prohibited without the author's consent, except for short quotes. This is why we deemed appropriate to only share the spiders employed to extract this data, instead of the whole corpus.
 
 ## Requisites
-* Python installed on your machine (guaranteed functionality with Python 3.6.4)
+* Python installed on your machine (guaranteed functionality with Python 3.6.4 onward)
 * The Python module Scrapy ([See the website of the module here](https://scrapy.org/), or simply `pip install scrapy`)
 * An account on EFP: the spiders need you username and password to log in on the website. This is because stories containing mature content are hidden unless you are logged in (and have declared to be at least 18 years old). To register, go at: https://efpfanfic.net/newaccount.php
 
@@ -36,10 +36,22 @@ Each entry in the json files corresponds to a chapter of a story, and contains t
 * N_Tot_Rec_Pos: The number of positive reviews received in total.
 * N_Tot_Rec_Neg: The number of neutral and negative reviews in total.
 * This_Rec: Number of reviews received by this particular chapter.
+
 For each review it is also possible to collect its text, as well as other information such as the reviewer's nickname. Since this study ended up not focusing on analyzing reviews, this feature has been removed early in the process of writing the presented crawlers: if you are interested in it feel free to write me an e-mail. 
+
 Lastly, in the .json files there are also some more fields containing information pertaining the structure of the stories: 
 * Elenco_Capitoli: a list of the IDs of all chapters beloning to that story.
 * Numero_Capitoli: how many chapters does this story have.
 * Next_ID_List: the ID of the next chapter in the story.
 * Position: where this chapter is situated in its story.
 
+## Additional Info
+
+### How do I change website section to crawl?
+EFPFanfiction hosts stories inspired by many works belonging to different genres, as well as original ones. We chose to focus on those derived from the saga 'Harry Potter' just because that was the biggest section on the website, but you might be interested in collecting fanfictions inspired by another book, or by a movie, manga, etc. To do so, you need to:
+1. Navigate EFP until you reach the first page of the section you want to crawl. For example, starting from the home page, you could select "Serie TV", then "Star Trek". You should see a list of chapters where you can click on their titles to read them.
+2. Look at the URL of the page you are on and locate the `catid` and `parentcatid` of the section. In our example, since the url for the Star Trek subsection is `https://efpfanfic.net/categories.php?catid=361&parentcatid=361`, both are 361.
+3. Open 'spider1.py' in a text editor and search for 'START_PAGES': it is found three times inside the function 'afterlogin'. The first two times it is followed by a long URL from EFP. Locate `catid=47` and `parentcatid=47` and swap the 47s with the numbers pertaining the section of your choosing.
+
+## Resources
+If you want to modify these spiders or create new ones from scratch, check out the [Scrapy Documentation](https://docs.scrapy.org/en/latest/), which also contains a well-made tutorial. 
