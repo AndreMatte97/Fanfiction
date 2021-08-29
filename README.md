@@ -6,7 +6,7 @@ Please remember that the distribution of the material found on that website is p
 ## Requisites
 * Python installed on your machine (guaranteed functionality with Python 3.6.4 onward)
 * The Python module Scrapy ([See the website of the module here](https://scrapy.org/), or simply `pip install scrapy`)
-* An account on EFP: the spiders need you username and password to log in on the website. This is because stories containing mature content are hidden unless you are logged in (and have declared to be at least 18 years old). To register, go at: https://efpfanfic.net/newaccount.php
+* An account on EFP: the spiders need your username and password to log in on the website. This is because stories containing mature content are hidden unless you are logged in (and have declared to be at least 18 years old). To register, go at: https://efpfanfic.net/newaccount.php
 
 ## Set-up Instructions
 1. Navigate to the directory where you wish to locate the spiders.
